@@ -8,6 +8,16 @@ namespace ClientManagement
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/extLibs").Include(
+                        "~/Scripts/underscore.js",
+                        "~/Scripts/backbone.js",
+                        "~/Scripts/toastr.js",
+                        "~/Scripts/toastr.min.js",
+                        "~/Scripts/flavr.js",
+                        "~/Scripts/flavr.min.js",
+                        "~/Scripts/underscore.min.js",
+                        "~/Scripts/main.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -37,7 +47,12 @@ namespace ClientManagement
                         "~/Content/themes/base/jquery.ui.tabs.css",
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+                        "~/Content/themes/base/jquery.ui.theme.css",
+                        "~/Content/flavr.css",
+                        "~/Content/flavr.min.css",
+                        "~/Content/toastr.css",
+                        "~/Content/toastr.min.css",
+                        "~/Content/toastr-responsive.css"));
         }
     }
 }
