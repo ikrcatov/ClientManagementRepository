@@ -23,17 +23,17 @@
         <link rel="stylesheet" type="text/css" media="screen" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css" />
     </head>
 
-    <body>
-        <form class="box login">
+    <body data-ng-app="validation">
+        <form id="loginForm" data-ng-submit="sendForm();" class="box login" data-ng-controller="SignUpController">
 	        <fieldset class="boxBody">
 	            <label>Username</label>
-	            <input type="text" tabindex="1" placeholder="Username" required>
+	            <input type="text" tabindex="1" placeholder="Username" id="Username" name="Username" data-ng-model="user.UserName" required>
 	            <label><a href="#" class="rLink" tabindex="5">Forget your password?</a>Password</label>
-	            <input type="password" tabindex="2" placeholder="Password" required>
+	            <input type="password" tabindex="2" placeholder="Password" id="Password" name="Password" data-ng-model="user.Password" required>
 	        </fieldset>
 	        <footer>
 	            <label><input type="checkbox" tabindex="3">Keep me logged in</label>
-	            <input type="submit" class="btnLogin" value="Login" tabindex="4">
+	            <input type="submit" class="btnLogin" value="Login" tabindex="4" data-ng-disabled="mainForm.$invalid">
 	        </footer>
         </form>
     </body>
@@ -50,6 +50,30 @@
 
         toastr.info("Main page!", 'INFO!');
 
+    });
+
+    var app = angular.module('validation', []);
+    app.controller('SignUpController', function ($scope, $http) {
+        $scope.user = {};
+        $scope.sendForm = function () {
+            $http({
+                method: 'POST',
+                url: "@Url.Action("Login")",
+                data: $scope.user
+            }).success(function (data, status, headers, config) {
+                if (data == 'notAdmin')
+                    toastr.error("You are not admin!", 'ERROR!');
+
+                if (data.success === false)
+                    toastr.error("Error while login!", 'ERROR!');
+                else {
+                    toastr.success("Successfull login!", 'SUCCESS!');
+                    $scope.person = {};
+                }
+            }).error(function (data, status, headers, config) {
+                toastr.error("Unexpected Error!", 'ERROR!');
+            });
+        };
     });
 
 </script>

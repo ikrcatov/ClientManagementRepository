@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CLIENT_MANAGEMENTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CLIENT_MANAGEMENTModelStoreContainer">
+    <EntitySet Name="USER" EntityType="CLIENT_MANAGEMENTModel.Store.USER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="USER_TYPE" EntityType="CLIENT_MANAGEMENTModel.Store.USER_TYPE" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID_USER_TYPE" Type="int" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="DELETED" Type="int" />
+  </EntityType>
+  <EntityType Name="USER_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="DELETED" Type="int" />
+  </EntityType>
+</Schema>

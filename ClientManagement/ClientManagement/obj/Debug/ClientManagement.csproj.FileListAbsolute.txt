@@ -47,3 +47,5 @@ D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\DotNe
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.csprojResolveAssemblyReference.cache
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.pdb
+D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.Properties.Resources.resources
+D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.csproj.GenerateResource.Cache
