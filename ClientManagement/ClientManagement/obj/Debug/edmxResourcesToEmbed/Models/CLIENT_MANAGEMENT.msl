@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CLIENT_MANAGEMENTModelStoreContainer" CdmEntityContainer="CLIENT_MANAGEMENTEntities">
+    <EntitySetMapping Name="CLIENT">
+      <EntityTypeMapping TypeName="CLIENT_MANAGEMENTModel.CLIENT">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER">
+      <EntityTypeMapping TypeName="CLIENT_MANAGEMENTModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ID_USER_TYPE" ColumnName="ID_USER_TYPE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_TYPE">
+      <EntityTypeMapping TypeName="CLIENT_MANAGEMENTModel.USER_TYPE">
+        <MappingFragment StoreEntitySet="USER_TYPE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

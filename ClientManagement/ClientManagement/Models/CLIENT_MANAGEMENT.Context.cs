@@ -25,6 +25,7 @@ namespace ClientManagement.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<CLIENT> CLIENT { get; set; }
         public DbSet<USER> USER { get; set; }
         public DbSet<USER_TYPE> USER_TYPE { get; set; }
     }

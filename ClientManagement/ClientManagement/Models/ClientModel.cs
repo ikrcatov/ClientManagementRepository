@@ -7,6 +7,6 @@ namespace ClientManagement.Models
 {
     public class ClientModel
     {
-        public List<USER> clients { get; set; }
+        public List<CLIENT> clients { get; set; }
     }
 }

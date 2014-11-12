@@ -33,11 +33,10 @@
 	        </fieldset>
 	        <footer>
 	            <label><input type="checkbox" tabindex="3">Keep me logged in</label>
-	            <input type="submit" class="btnLogin" value="Login" tabindex="4" data-ng-disabled="mainForm.$invalid">
+	            <input type="submit" class="btnLogin" value="Login" tabindex="4" />
 	        </footer>
         </form>
     </body>
-    
 </html>
 
 <style type="text/css">
@@ -47,13 +46,11 @@
 <script type="text/javascript">
 
     angular.element(document).ready(function () {
-
-        toastr.info("Main page!", 'INFO!');
-
+        
     });
 
     var app = angular.module('validation', []);
-    app.controller('SignUpController', function ($scope, $http) {
+    app.controller('SignUpController', function ($scope, $http, $location) {
         $scope.user = {};
         $scope.sendForm = function () {
             $http({
@@ -61,14 +58,12 @@
                 url: "@Url.Action("Login")",
                 data: $scope.user
             }).success(function (data, status, headers, config) {
-                if (data == 'notAdmin')
-                    toastr.error("You are not admin!", 'ERROR!');
 
                 if (data.success === false)
                     toastr.error("Error while login!", 'ERROR!');
                 else {
                     toastr.success("Successfull login!", 'SUCCESS!');
-                    $scope.person = {};
+                    $scope.user = {};
                 }
             }).error(function (data, status, headers, config) {
                 toastr.error("Unexpected Error!", 'ERROR!');

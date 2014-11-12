@@ -10,12 +10,10 @@ namespace ClientManagement.Controllers
     public class HomeController : Controller
     {
         Boolean admin = false;
-        List<USER> clientList = new List<USER>();
+        List<CLIENT> clientList = new List<CLIENT>();
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             return View();
         }
 
@@ -50,9 +48,41 @@ namespace ClientManagement.Controllers
 
             /*Dohvati sve usere i grupe*/
             if (admin == true)
+            {
+                getAllClientsForUser(context, user.Id);
                 return View("ClientList", viewModel);
+            }
+
             else
-                return Json("notAdmin");
+                return Json(new
+                {
+                    success = false
+                });
+        }
+
+        private void getAllClientsForUser(CLIENT_MANAGEMENTEntities context, Int32 Id)
+        {
+            /*GET ALL USERS*/
+            IQueryable<CLIENT> clientsQuery = from client in context.CLIENT
+                                            where client.ID_USER == Id
+                                            select client;
+
+            CLIENT[] clients = new CLIENT[clientsQuery.Count()];
+
+            for (int i = 0; i < clients.Length; i++)
+                clients[i] = new CLIENT();
+
+            int j = 0;
+
+            foreach (var client in clientsQuery)
+            {
+                clients[j].NAME = client.NAME;
+                clients[j].Id = client.Id;
+                j++;
+            }
+
+            for (int i = 0; i < clients.Length; i++)
+                clientList.Add(clients[i]);
         }
     }
 }

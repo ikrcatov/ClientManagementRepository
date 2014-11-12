@@ -6,9 +6,19 @@
     <edmx:StorageModels>
       <Schema Namespace="CLIENT_MANAGEMENTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="CLIENT_MANAGEMENTModelStoreContainer">
+          <EntitySet Name="CLIENT" EntityType="CLIENT_MANAGEMENTModel.Store.CLIENT" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USER" EntityType="CLIENT_MANAGEMENTModel.Store.USER" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="USER_TYPE" EntityType="CLIENT_MANAGEMENTModel.Store.USER_TYPE" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER" Type="int" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DELETED" Type="int" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,9 +44,19 @@
     <edmx:ConceptualModels>
       <Schema Namespace="CLIENT_MANAGEMENTModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CLIENT_MANAGEMENTEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENT" EntityType="CLIENT_MANAGEMENTModel.CLIENT" />
           <EntitySet Name="USER" EntityType="CLIENT_MANAGEMENTModel.USER" />
           <EntitySet Name="USER_TYPE" EntityType="CLIENT_MANAGEMENTModel.USER_TYPE" />
         </EntityContainer>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DELETED" Type="Int32" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="Id" />
@@ -62,6 +82,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CLIENT_MANAGEMENTModelStoreContainer" CdmEntityContainer="CLIENT_MANAGEMENTEntities">
+          <EntitySetMapping Name="CLIENT">
+            <EntityTypeMapping TypeName="CLIENT_MANAGEMENTModel.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="USER">
             <EntityTypeMapping TypeName="CLIENT_MANAGEMENTModel.USER">
               <MappingFragment StoreEntitySet="USER">
