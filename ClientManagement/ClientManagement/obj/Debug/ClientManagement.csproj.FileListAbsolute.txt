@@ -11,10 +11,7 @@ D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Entit
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Microsoft.Web.Infrastructure.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Microsoft.Web.WebPages.OAuth.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Newtonsoft.Json.dll
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Net.Http.Formatting.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Helpers.dll
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Http.dll
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Http.WebHost.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Mvc.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Optimization.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Razor.dll
@@ -26,10 +23,7 @@ D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\WebMa
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\WebMatrix.WebData.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\EntityFramework.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Newtonsoft.Json.xml
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Net.Http.Formatting.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Helpers.xml
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Http.xml
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Http.WebHost.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Mvc.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.Razor.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\System.Web.WebPages.xml
