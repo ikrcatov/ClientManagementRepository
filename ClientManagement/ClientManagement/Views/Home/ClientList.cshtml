@@ -9,8 +9,10 @@
     <script src="/Scripts/toastr.min.js" type="text/javascript"></script>
     <script src="/Scripts/flavr.js" type="text/javascript"></script>
     <script src="/Scripts/flavr.min.js" type="text/javascript"></script>
+    <script src="/Scripts/main.js" type="text/javascript"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.2/angular-mocks.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js" type="text/javascript"></script>
     <script src="http://m-e-conroy.github.io/angular-dialog-service/javascripts/dialogs.min.js" type="text/javascript"></script>
@@ -131,6 +133,9 @@
 	        color: #444;
 	        text-shadow: 0 1px 0 #fff;
         }
+
+        .class {display: none;}
+
     </style>
 </head>
     
@@ -143,9 +148,9 @@
             </tr>
         </thead>
         <tbody data-ng-controller="clientListController">
-            <tr ng-repeat="user in users">
-                <td>{{user.ID}}</td>
-                <td>{{user.NAME}}</td>
+            <tr id="clientListTr" ng-repeat="user in users">
+                <td ng-bind="user.ID"></td>
+                <td ng-bind="user.NAME"></td>
             </tr>
         </tbody>
     </table>
@@ -154,12 +159,13 @@
 <script type="text/javascript">
     
     angular.element(document).ready(function ($scope) {
-        $scope.users = {};
+
     });
     
-    function clientListController($scope) {
-        $scope.users = [{ ID: '1', NAME: 'ANTE ANTIC' }];
-        console.log('$scope.user is: ' + JSON.stringify($scope.user));
+    function clientListController($scope, myService) {
+        //$scope.users = [{ ID: '1', NAME: 'ANTE ANTIC' }, { ID: '2', NAME: 'IVO IVIC' }];
+        
+        console.log('USERS AFTER SUBMIT: ' + jQuery('#usersInHidden').val());
     }
 
 </script>
