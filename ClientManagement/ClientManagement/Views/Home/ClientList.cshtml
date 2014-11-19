@@ -148,9 +148,9 @@
             </tr>
         </thead>
         <tbody data-ng-controller="clientListController">
-            <tr id="clientListTr" ng-repeat="user in users">
-                <td ng-bind="user.ID"></td>
-                <td ng-bind="user.NAME"></td>
+            <tr id="clientListTr" data-ng-repeat="user in users">
+                <td data-ng-bind="user.Id"></td>
+                <td data-ng-bind="user.NAME"></td>
             </tr>
         </tbody>
     </table>
@@ -163,9 +163,7 @@
     });
     
     function clientListController($scope, myService) {
-        //$scope.users = [{ ID: '1', NAME: 'ANTE ANTIC' }, { ID: '2', NAME: 'IVO IVIC' }];
-        
-        console.log('USERS AFTER SUBMIT: ' + jQuery('#usersInHidden').val());
+        $scope.users = angular.fromJson($('#usersInHidden').val());
     }
 
 </script>

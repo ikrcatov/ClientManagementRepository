@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using ClientManagement.Models;
 
 namespace ClientManagement.Controllers
@@ -50,7 +51,13 @@ namespace ClientManagement.Controllers
             if (admin == true)
             {
                 getAllClientsForUser(context, user.Id);
-                return View("ClientList", viewModel);
+
+                return Json(new
+                {
+                    success = true,
+                    viewModel,
+                    message = RenderPartialView("ClientList", viewModel)
+                });
             }
 
             else
@@ -60,6 +67,23 @@ namespace ClientManagement.Controllers
                 });
         }
 
+        private string RenderPartialView(string viewName, object model)
+        {
+            if (string.IsNullOrEmpty(viewName))
+            {
+                viewName = this.ControllerContext.RouteData.GetRequiredString("action");
+            }
+            this.ViewData.Model = model;
+            using (var sw = new StringWriter())
+            {
+                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(this.ControllerContext, viewName);
+                var viewContext = new ViewContext(this.ControllerContext, viewResult.View, this.ViewData, this.TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+                viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+       
         private void getAllClientsForUser(CLIENT_MANAGEMENTEntities context, Int32 Id)
         {
             /*GET ALL USERS*/

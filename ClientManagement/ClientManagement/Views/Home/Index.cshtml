@@ -67,14 +67,12 @@
                 if (data.success === false)
                     toastr.error("Error while login!", 'ERROR!');
                 else {
-                    $scope.users = [{ ID: '1', NAME: 'ANTE ANTIC' }, { ID: '2', NAME: 'IVO IVIC' }];
-                    myService.set($scope.users);
-                    
-                    console.log('USERS BEFORE SUBMIT: ' + JSON.stringify(myService.get()));
+                    myService.set(data.viewModel.clients);
 
-                    jQuery('#mainHtml').append('<input type="hidden" id="usersInHidden" name="usersInHidden" value="' + JSON.stringify($scope.users) + '" />');
+                    $('#mainHtml').append('<input type="hidden" id="usersInHidden" name="usersInHidden" value="" />');
+                    $('#usersInHidden').val(angular.toJson(myService.get()));
 
-                    angular.element('#mainBody').html(data);
+                    angular.element('#mainBody').html(data.message);
                 }
             }).error(function (data, status, headers, config) {
                 toastr.error("Unexpected Error!", 'ERROR!');
