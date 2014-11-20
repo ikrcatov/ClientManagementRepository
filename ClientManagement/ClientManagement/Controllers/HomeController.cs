@@ -12,6 +12,7 @@ namespace ClientManagement.Controllers
     {
         Boolean admin = false;
         List<CLIENT> clientList = new List<CLIENT>();
+        List<TASK> taskList = new List<TASK>();
 
         public ActionResult Index()
         {
@@ -22,7 +23,8 @@ namespace ClientManagement.Controllers
         {
             var viewModel = new ClientModel
             {
-                clients = clientList
+                clients = clientList,
+                tasks = taskList
             };
 
             String username = model.UserName;
@@ -50,21 +52,31 @@ namespace ClientManagement.Controllers
             /*Dohvati sve usere i grupe*/
             if (admin == true)
             {
+                String formName = "";
+
                 getAllClientsForUser(context, user.Id);
 
                 return Json(new
                 {
                     success = true,
                     viewModel,
+                    formName = "clientList",
                     message = RenderPartialView("ClientList", viewModel)
                 });
             }
 
             else
+            {
+                getAllTasksForClient(context, user.Id);
+
                 return Json(new
                 {
-                    success = false
+                    success = true,
+                    viewModel,
+                    formName = "taskList",
+                    message = RenderPartialView("TaskList", viewModel)
                 });
+            }
         }
 
         private string RenderPartialView(string viewName, object model)
@@ -107,6 +119,31 @@ namespace ClientManagement.Controllers
 
             for (int i = 0; i < clients.Length; i++)
                 clientList.Add(clients[i]);
+        }
+
+        private void getAllTasksForClient(CLIENT_MANAGEMENTEntities context, Int32 Id)
+        {
+            /*GET ALL USERS*/
+            IQueryable<TASK> tasksQuery = from task in context.TASK
+                                          where task.ID_USER == Id
+                                          select task;
+
+            TASK[] tasks = new TASK[tasksQuery.Count()];
+
+            for (int i = 0; i < tasks.Length; i++)
+                tasks[i] = new TASK();
+
+            int j = 0;
+
+            foreach (var task in tasksQuery)
+            {
+                tasks[j].NAME = task.NAME;
+                tasks[j].Id = task.Id;
+                j++;
+            }
+
+            for (int i = 0; i < tasks.Length; i++)
+                taskList.Add(tasks[i]);
         }
     }
 }

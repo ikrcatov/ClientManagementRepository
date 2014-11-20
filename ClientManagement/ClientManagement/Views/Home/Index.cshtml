@@ -67,12 +67,33 @@
                 if (data.success === false)
                     toastr.error("Error while login!", 'ERROR!');
                 else {
-                    myService.set(data.viewModel.clients);
 
-                    $('#mainHtml').append('<input type="hidden" id="usersInHidden" name="usersInHidden" value="" />');
-                    $('#usersInHidden').val(angular.toJson(myService.get()));
+                    var formName = data.formName;
 
-                    angular.element('#mainBody').html(data.message);
+                    if (formName != null & formName != "null" && formName != "" && formName != "undefined") {
+                        if (formName == 'clientList') {
+                            /*CLIENTI*/
+                            myService.set(data.viewModel.clients);
+
+                            $('#mainHtml').append('<input type="hidden" id="usersInHidden" name="usersInHidden" value="" />');
+                            $('#usersInHidden').val(angular.toJson(myService.get()));
+
+                            angular.element('#mainBody').html(data.message);
+                        }
+
+                        else if (formName == 'taskList') {
+                            /*TASKOVI*/
+                            myService.set(data.viewModel.tasks);
+
+                            $('#mainHtml').append('<input type="hidden" id="tasksInHidden" name="tasksInHidden" value="" />');
+                            $('#tasksInHidden').val(angular.toJson(myService.get()));
+
+                            angular.element('#mainBody').html(data.message);
+                        }
+
+                        else
+                            toastr.error("Error while login!", 'ERROR!');
+                    }
                 }
             }).error(function (data, status, headers, config) {
                 toastr.error("Unexpected Error!", 'ERROR!');

@@ -190,6 +190,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CLIENT_MANAGEMENT.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TASK.cs">
+      <DependentUpon>CLIENT_MANAGEMENT.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USER.cs">
       <DependentUpon>CLIENT_MANAGEMENT.tt</DependentUpon>
     </Compile>
@@ -349,6 +352,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\toastr.min.js.map" />
     <Content Include="Views\Home\ClientList.cshtml" />
+    <Content Include="Views\Home\TaskList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

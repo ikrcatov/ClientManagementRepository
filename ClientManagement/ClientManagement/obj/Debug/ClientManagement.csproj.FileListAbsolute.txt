@@ -1,3 +1,6 @@
+D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.csprojResolveAssemblyReference.cache
+D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.Properties.Resources.resources
+D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.csproj.GenerateResource.Cache
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\ClientManagement.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\ClientManagement.pdb
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\Antlr3.Runtime.dll
@@ -38,7 +41,5 @@ D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\DotNe
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\DotNetOpenAuth.OAuth.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\DotNetOpenAuth.OpenId.xml
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.Properties.Resources.resources
-D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.csproj.GenerateResource.Cache
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.dll
 D:\GitHub\ClientManagementRepository\ClientManagement\ClientManagement\obj\Debug\ClientManagement.pdb

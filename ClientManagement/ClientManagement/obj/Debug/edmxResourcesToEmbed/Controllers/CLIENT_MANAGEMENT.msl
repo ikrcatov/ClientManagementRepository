@@ -16,7 +16,6 @@
         <MappingFragment StoreEntitySet="TASK">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ID_CLIENT" ColumnName="ID_CLIENT" />
-          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="DELETED" ColumnName="DELETED" />
         </MappingFragment>

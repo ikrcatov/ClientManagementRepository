@@ -26,6 +26,7 @@ namespace ClientManagement.Models
         }
     
         public DbSet<CLIENT> CLIENT { get; set; }
+        public DbSet<TASK> TASK { get; set; }
         public DbSet<USER> USER { get; set; }
         public DbSet<USER_TYPE> USER_TYPE { get; set; }
     }

@@ -21,7 +21,6 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ID_CLIENT" Type="int" />
-    <Property Name="ID_USER" Type="int" />
     <Property Name="NAME" Type="varchar" MaxLength="50" />
     <Property Name="DELETED" Type="int" />
   </EntityType>
