@@ -108,10 +108,6 @@
 	        background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	
         }
 
-        tr:nth-child(odd) td {
-	        background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
-        }
-
         tr:last-of-type td {
 	        box-shadow: inset 0 -1px 0 #fff; 
         }
@@ -136,34 +132,59 @@
 
         .class {display: none;}
 
+        .active {
+            background-color: #C3E5FA !important;
+        }
+
+        .oddClass {
+             background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+        }
+
     </style>
 </head>
     
 <form id="clientListForm" style="width: 90%; height: 90%;" data-ng-app="clientList">
-	<table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-            </tr>
-        </thead>
-        <tbody data-ng-controller="clientListController">
-            <tr id="clientListTr" data-ng-repeat="user in users">
-                <td data-ng-bind="user.Id"></td>
-                <td data-ng-bind="user.NAME"></td>
-            </tr>
-        </tbody>
-    </table>
+    <input id="selectedClientId" name="selectedClientId" value="" type="hidden">
+
+    <div id="tableHolder" style="width: 95%; height: 80%; float: left;">
+	    <table style="width: 95%; height: 95%;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                </tr>
+            </thead>
+            <tbody data-ng-controller="clientListController">
+                <tr id="clientListTr" data-ng-repeat="user in users" data-ng-class-odd="'oddClass'" data-ng-click="selectedRow($index, user.Id)" data-ng-class="{'active': $index == selectedId}">
+                    <td data-ng-bind="user.Id"></td>
+                    <td data-ng-bind="user.NAME"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="buttonsHolder" style="width: 95%; height: 20%; text-align: center; margin-left: -195px; float: left;">
+        <input type="submit" class="btnLogin" value="Add" />
+        <input type="submit" class="btnLogin" value="Delete" />
+        <input type="submit" class="btnLogin" value="Edit" />
+        <input type="submit" class="btnLogin" value="Credentials" />
+        <input type="submit" class="btnLogin" value="Log Out" />
+    </div>
+
 </form>
 
 <script type="text/javascript">
     
     angular.element(document).ready(function ($scope) {
-
     });
     
     function clientListController($scope, myService) {
         $scope.users = angular.fromJson($('#usersInHidden').val());
+
+        $scope.selectedRow = function ($index, id) {
+            $scope.selectedId = $index;
+            $('#selectedClientId').val(id);
+        };
     }
 
 </script>
