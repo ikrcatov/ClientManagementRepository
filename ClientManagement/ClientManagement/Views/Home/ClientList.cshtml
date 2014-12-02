@@ -143,7 +143,7 @@
     </style>
 </head>
     
-<form id="clientListForm" style="width: 90%; height: 90%;" data-ng-app="clientList">
+<form id="clientListForm" style="width: 90%; height: 90%;" data-ng-app="clientList" data-ng-controller="clientListController">
     <input id="selectedClientId" name="selectedClientId" value="" type="hidden">
 
     <div id="tableHolder" style="width: 95%; height: 80%; float: left;">
@@ -154,7 +154,7 @@
                     <th>NAME</th>
                 </tr>
             </thead>
-            <tbody data-ng-controller="clientListController">
+            <tbody>
                 <tr id="clientListTr" data-ng-repeat="user in users" data-ng-class-odd="'oddClass'" data-ng-click="selectedRow($index, user.Id)" data-ng-class="{'active': $index == selectedId}">
                     <td data-ng-bind="user.Id"></td>
                     <td data-ng-bind="user.NAME"></td>
@@ -164,11 +164,11 @@
     </div>
 
     <div id="buttonsHolder" style="width: 95%; height: 20%; text-align: center; margin-left: -195px; float: left;">
-        <input type="submit" class="btnLogin" value="Add" />
-        <input type="submit" class="btnLogin" value="Delete" />
-        <input type="submit" class="btnLogin" value="Edit" />
-        <input type="submit" class="btnLogin" value="Credentials" />
-        <input type="submit" class="btnLogin" value="Log Out" />
+        <input type="button" class="btnLogin" value="Add" />
+        <input type="button" class="btnLogin" value="Delete" />
+        <input type="button" class="btnLogin" value="Edit" />
+        <input type="button" class="btnLogin" value="Credentials" />
+        <input type="submit" class="btnLogin" id="logOut" data-ng-click="logOut();" value="Log Out" />
     </div>
 
 </form>
@@ -178,13 +178,24 @@
     angular.element(document).ready(function ($scope) {
     });
     
-    function clientListController($scope, myService) {
+    function clientListController($scope, $http, $location, myService) {
         $scope.users = angular.fromJson($('#usersInHidden').val());
 
         $scope.selectedRow = function ($index, id) {
             $scope.selectedId = $index;
             $('#selectedClientId').val(id);
         };
+
+        $scope.logOut = function () {
+            
+            $http.post("@Url.Action("Index")", { "data": "" }).
+		        success(function (data, status) {
+		            angular.element('#mainBody').html(data);
+		        }).error(function (data, status) {
+		            $scope.data = data || "Request failed";
+		            $scope.status = status;
+		        });
+            };
     }
 
 </script>
